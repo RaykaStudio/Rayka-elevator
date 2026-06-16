@@ -42,4 +42,4 @@ We are constantly improving our scripts based on your feedback. If you have any 
 
 ---
 ### 🛠️ Developed by Rayka Development
-_Providing optimized, modern, and clean solutions for the FiveM community.
+Providing optimized, modern, and clean solutions for the FiveM community.
