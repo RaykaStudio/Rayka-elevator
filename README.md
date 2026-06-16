@@ -12,13 +12,10 @@ A simple, lightweight, and highly practical Elevator Creator script for FiveM se
 
 ---
 
-## 🚀 Installation & Requirements
+## 🚀 Installation
 
-1. Ensure you have a supported framework (`qb-core`, `esx`, or `qbox`).
-2. Download the latest release of `rayka-elevator`.
-3. Extract the folder into your server's `resources` directory.
-4. Rename the folder to `rayka-elevator` (if it has a version suffix).
-5. Add `ensure rayka-elevator` to your `server.cfg`.
+1. Drag and drop the script folder into your server's `resources` directory.
+2. For complete configuration and step-by-step setup, please read the full instruction guide inside the **`readme.md`** file.
 
 ---
 
@@ -27,11 +24,11 @@ We are constantly improving our scripts based on your feedback. If you have any 
 
 ---
 
-## 🔗 Links & Community
+## 🔗 Community & Support
 
-| 📢 Discord Server | 📸 Instagram | 📥 Download |
-| :--- | :--- | :--- |
-| [![Discord](https://img.shields.io/badge/Discord-Join%20Us-7289DA?style=for-the-badge&logo=discord)](YOUR_DISCORD_LINK_HERE) | [![Instagram](https://img.shields.io/badge/Instagram-Follow%20Us-E4405F?style=for-the-badge&logo=instagram)](YOUR_INSTAGRAM_LINK_HERE) | [![Download](https://img.shields.io/badge/Download-Latest-brightgreen?style=for-the-badge)](YOUR_DOWNLOAD_LINK_HERE) |
+| 📢 Discord Server |
+| :--- |
+| [![Discord](https://img.shields.io/badge/Discord-Join%20Us-7289DA?style=for-the-badge&logo=discord)](https://discord.gg/7K7G5vswuF) |
 
 ---
 ### 🛠️ Developed by Rayka Development
