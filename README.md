@@ -19,9 +19,7 @@ A simple, lightweight, and highly practical Elevator Creator script for FiveM se
 
 ---
 
-## 📺 Video Tutorial
-Need help with setup and configuration? Watch our complete step-by-step guide on YouTube:
-
+## 📺 Video 
 <p align="center">
   <a href="YOUR_YOUTUBE_VIDEO_LINK_HERE">
     <img src="YOUR_PREVIEW_IMAGE_URL_1_HERE" alt="Tutorial Preview 1" width="45%">
