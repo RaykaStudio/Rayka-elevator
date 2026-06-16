@@ -1,0 +1,784 @@
+:root {
+    --primary: #B8D1CC;
+    --bg-main: #1a1c1e;
+    --bg-sidebar: #131517;
+    --bg-input: #232629;
+    --border-color: rgba(184, 209, 204, 0.1);
+    --border-hover: rgba(184, 209, 204, 0.3);
+    --text-main: #ffffff;
+    --text-muted: #6e7072;
+    --accent: #B8D1CC;
+    --success: #4dff76;
+    --danger: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    user-select: none;
+}
+
+body {
+    background: transparent;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.asccochi-hidden {
+    display: none !important;
+}
+
+.rayka-scale-up-animation {
+    animation: rayka-scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes rayka-scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes asccochi-menuFade {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rayka-promptIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.rayka-custom-scroll::-webkit-scrollbar {
+    width: 4px;
+}
+
+.rayka-custom-scroll::-webkit-scrollbar-thumb {
+    background: rgba(184, 209, 204, 0.15);
+    border-radius: 10px;
+}
+
+.rayka-custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+#rayka-container {
+    width: 940px;
+    height: 540px;
+    background: linear-gradient(145deg, var(--bg-main) 0%, #17181a 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    display: flex;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8);
+}
+
+.rayka-sidebar {
+    width: 220px;
+    background: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 30px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.rayka-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 6px 25px 6px;
+}
+
+.rayka-brand-logo {
+    width: 28px;
+    height: 28px;
+    background: rgba(184, 209, 204, 0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 14px;
+}
+
+.rayka-brand span {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.rayka-menu-item {
+    padding: 11px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.18s ease;
+    border-left: 3px solid transparent;
+}
+
+.rayka-menu-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rayka-menu-item.rayka-active {
+    background: var(--bg-input);
+    color: #fff;
+    border-left-color: var(--accent);
+    padding-left: 14px;
+}
+
+.rayka-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 10px 6px;
+}
+
+.rayka-main-content {
+    flex: 1;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.rayka-tab-content {
+    display: none !important;
+    height: 100%;
+    flex-direction: column;
+}
+
+.rayka-tab-content.rayka-active-tab {
+    display: flex !important;
+    animation: rayka-scaleIn 0.2s ease forwards;
+}
+
+.rayka-inner-split {
+    display: flex;
+    gap: 28px;
+    flex: 1;
+    height: 100%;
+}
+
+.rayka-split-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.25s ease;
+}
+
+.rayka-setup-column {
+    border-right: 1px solid var(--border-color);
+    padding-right: 28px;
+}
+
+.asccochi-locked-phase {
+    opacity: 0.15;
+    pointer-events: none;
+    transform: scale(0.99);
+}
+
+.rayka-header-block {
+    margin-bottom: 22px;
+}
+
+h2 {
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.3px;
+}
+
+.rayka-description {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 3px;
+}
+
+.rayka-form-group,
+.rayka-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.rayka-input-group {
+    gap: 7px;
+}
+
+.rayka-input-group.rayka-compact {
+    max-width: 100px;
+    margin-bottom: 14px;
+}
+
+.rayka-input-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.rayka-input-group label .rayka-optional {
+    color: var(--text-muted);
+    font-size: 11px;
+}
+
+.rayka-input-group input {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 11px 14px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.15s ease;
+}
+
+.rayka-input-group input:focus:not(:disabled) {
+    border-color: var(--border-hover);
+    background: #2b2e33;
+}
+
+.rayka-input-group input:disabled {
+    opacity: 0.5;
+}
+
+.rayka-ox-btn-primary,
+.rayka-ox-btn-success {
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.15s ease;
+    margin-top: 6px;
+}
+
+.rayka-ox-btn-primary {
+    background: var(--accent);
+    color: #1a1c1e;
+    border: none;
+}
+
+.rayka-ox-btn-primary:hover:not(:disabled) {
+    background: #a3bbb7;
+    transform: translateY(-1px);
+}
+
+.rayka-ox-btn-success {
+    background: rgba(77, 255, 118, 0.1);
+    border: 1px solid var(--success);
+    color: var(--success);
+}
+
+.rayka-ox-btn-success:hover:not(:disabled) {
+    background: var(--success);
+    color: #000;
+    transform: translateY(-1px);
+}
+
+.rayka-floors-layout {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.rayka-scrollable-list {
+    flex: 1;
+    background: #111214;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+    max-height: 230px;
+}
+
+.rayka-location-row {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: border-color 0.15s ease;
+}
+
+.rayka-location-row:hover {
+    border-color: rgba(184, 209, 204, 0.25);
+}
+
+.rayka-row-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    font-size: 13px;
+    color: var(--text-main);
+}
+
+.rayka-row-inputs i {
+    font-size: 7px;
+}
+
+.rayka-dot-main {
+    color: var(--accent);
+}
+
+.rayka-dot-floor {
+    color: var(--text-muted);
+}
+
+.rayka-floor-custom-name {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    color: #fff;
+    font-size: 13px;
+    padding: 4px 0;
+    outline: none;
+    width: 130px;
+    transition: border-color 0.15s ease;
+}
+
+.rayka-floor-custom-name:focus {
+    border-color: var(--accent);
+}
+
+.rayka-btn-set-loc {
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: #fff;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.rayka-btn-set-loc:hover:not(:disabled) {
+    border-color: rgba(184, 209, 204, 0.3);
+    background: #2e3136;
+}
+
+.rayka-btn-set-loc:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.rayka-btn-set-loc.rayka-set-success {
+    background: rgba(77, 255, 118, 0.05);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.rayka-search-container {
+    position: relative;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+}
+
+.rayka-search-icon {
+    position: absolute;
+    left: 16px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.rayka-search-input {
+    width: 100%;
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 13px 13px 13px 44px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.15s ease;
+}
+
+.rayka-search-input:focus {
+    border-color: var(--accent);
+    background: var(--bg-main);
+}
+
+.rayka-elevator-list-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.rayka-elevator-card {
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    transition: all 0.18s ease;
+}
+
+.rayka-elevator-card:hover {
+    border-color: rgba(184, 209, 204, 0.2);
+    background: #1b1e21;
+}
+
+.rayka-card-details h4 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.rayka-card-details p {
+    color: var(--text-muted);
+    font-size: 12px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rayka-badge-job {
+    background: rgba(184, 209, 204, 0.1);
+    color: var(--primary);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+.rayka-action-menu-container {
+    position: relative;
+}
+
+.rayka-btn-dots {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.12s ease;
+}
+
+.rayka-btn-dots:hover {
+    color: #fff;
+    background: var(--bg-input);
+}
+
+.asccochi-context-menu {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    background: #17191c;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    width: 120px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.asccochi-context-menu.asccochi-show {
+    display: flex;
+    animation: asccochi-menuFade 0.12s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.asccochi-context-item {
+    padding: 8px 12px;
+    font-size: 13px;
+    color: var(--text-main);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+}
+
+.asccochi-context-item:hover {
+    background: var(--bg-input);
+    color: #fff;
+}
+
+.asccochi-context-item.asccochi-delete-item {
+    color: var(--danger);
+}
+
+.asccochi-context-item.asccochi-delete-item:hover {
+    background: rgba(239, 68, 68, 0.08);
+}
+
+.rayka-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rayka-ox-modal {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    width: 400px;
+    padding: 24px;
+    border-radius: 6px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    animation: rayka-scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.rayka-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: #fff;
+}
+
+.rayka-modal-icon {
+    color: var(--danger);
+    font-size: 20px;
+}
+
+.rayka-ox-modal p {
+    color: var(--text-main);
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 24px;
+}
+
+.rayka-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.rayka-modal-actions button {
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.12s ease;
+}
+
+.rayka-btn-secondary {
+    background: var(--bg-input);
+    color: #fff;
+    border: 1px solid var(--border-color);
+}
+
+.rayka-btn-secondary:hover {
+    background: #2a2c33;
+}
+
+.rayka-btn-danger {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+.rayka-btn-danger:hover {
+    background: var(--danger);
+    color: #fff;
+}
+
+#rayka-prompt {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 9999;
+    min-width: 290px;
+    animation: rayka-promptIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.rayka-badge {
+    display: flex;
+    align-items: center;
+}
+
+.rayka-key-cap {
+    background: var(--bg-sidebar);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 7px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rayka-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+.rayka-action-title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.rayka-action-sub {
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+#rayka-selector {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 280px;
+    max-height: 480px;
+    background: linear-gradient(145deg, var(--bg-main) 0%, var(--bg-sidebar) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: column;
+    padding: 18px;
+    z-index: 9998;
+}
+
+.rayka-selector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+}
+
+.rayka-selector-header h3 {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+
+#rayka-selector-job-badge {
+    background: rgba(184, 209, 204, 0.08);
+    color: var(--primary);
+    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+}
+
+.rayka-selector-floors {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+}
+
+.asccochi-floor-btn {
+    width: 100%;
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    padding: 12px 14px;
+    color: var(--text-main);
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: 0.2s;
+}
+
+.asccochi-floor-btn:hover {
+    border-color: var(--border-hover);
+    background: #1e2124;
+    color: #fff;
+}
+
+.asccochi-floor-icon {
+    color: var(--text-muted);
+    font-size: 10px;
+    transition: color 0.15s ease;
+}
+
+.asccochi-floor-btn:hover .asccochi-floor-icon {
+    color: var(--accent);
+}
+
+.rayka-empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px
+}

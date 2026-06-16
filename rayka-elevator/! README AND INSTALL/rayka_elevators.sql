@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `rayka_elevators` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `name` VARCHAR(100) NOT NULL,
+    `job` VARCHAR(50) DEFAULT 'public',
+    `floors` LONGTEXT NOT NULL, 
+    `menu_order` INT(11) NOT NULL DEFAULT '0',
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

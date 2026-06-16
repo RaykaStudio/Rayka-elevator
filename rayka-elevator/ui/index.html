@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayka System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <audio id="rayka-audio" src="sound.mp3" preload="auto"></audio>
+
+    <div id="rayka-prompt" class="asccochi-hidden">
+        <div class="rayka-badge">
+            <span class="rayka-key-cap">E</span>
+        </div>
+        <div class="rayka-details">
+            <span class="rayka-action-title">ELEVATOR SYSTEM</span>
+            <span class="rayka-action-sub">Press to open elevator menu</span>
+        </div>
+    </div>
+
+    <div id="rayka-selector" class="asccochi-hidden">
+        <div class="rayka-selector-header">
+            <h3 id="rayka-selector-title">Elevator</h3>
+            <p id="rayka-selector-job-badge">Public</p>
+        </div>
+        <div class="rayka-selector-floors rayka-custom-scroll" id="rayka-selector-floors-list">
+        </div>
+    </div>
+
+    <div id="asccochi-modal" class="rayka-modal-overlay asccochi-hidden">
+        <div class="rayka-ox-modal">
+            <div class="rayka-modal-header">
+                <i class="fa-solid fa-triangle-exclamation rayka-modal-icon"></i>
+                <h3>Delete Elevator?</h3>
+            </div>
+            <p>Are you sure you want to delete this elevator system? This action is permanent and cannot be undone.</p>
+            <div class="rayka-modal-actions">
+                <button id="rayka-modal-cancel" class="rayka-btn-secondary">Cancel</button>
+                <button id="rayka-modal-confirm-delete" class="rayka-btn-danger">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="rayka-container" class="asccochi-hidden rayka-scale-up-animation">
+        <div class="rayka-sidebar">
+            <div class="rayka-brand">
+                <div class="rayka-brand-logo"><i class="fa-solid fa-layer-group"></i></div>
+                <span>RAYKA STUDIO</span>
+            </div>
+            <div class="rayka-menu-item rayka-active" id="rayka-tab-create-btn" data-target="rayka-create-section">
+                <i class="fa-solid fa-square-plus rayka-item-icon"></i> Create Elevator
+            </div>
+            <div class="rayka-divider"></div>
+            <div class="rayka-menu-item" id="rayka-tab-list-btn" data-target="rayka-list-section">
+                <i class="fa-solid fa-list-ul rayka-item-icon"></i> Elevator List
+            </div>
+        </div>
+
+        <div class="rayka-main-content">
+            <div id="rayka-create-section" class="rayka-tab-content rayka-active-tab">
+                <div class="rayka-inner-split">
+                    <div class="rayka-split-column rayka-setup-column">
+                        <div class="rayka-header-block">
+                            <h2>Primary Settings</h2>
+                            <p class="rayka-description">Configure elevator.</p>
+                        </div>
+                        <div class="rayka-form-group">
+                            <div class="rayka-input-group">
+                                <label>Elevator Name</label>
+                                <input type="text" id="rayka-elevator-name" placeholder="Enter the elevator name"
+                                    autocomplete="off">
+                            </div>
+                            <div class="rayka-input-group">
+                                <label>Required Job <span class="rayka-optional">(Optional)</span></label>
+                                <input type="text" id="rayka-elevator-job" placeholder="police or leave empty"
+                                    autocomplete="off">
+                            </div>
+                            <button id="rayka-btn-confirm" class="rayka-ox-btn-primary">
+                                Confirm & Lock <i class="fa-solid fa-lock"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="rayka-split-column rayka-floors-column asccochi-locked-phase"
+                        id="rayka-floors-section-wrapper">
+                        <div class="rayka-header-block">
+                            <h2>Floors Bindings</h2>
+                            <p class="rayka-description">Set locations & custom names.</p>
+                        </div>
+                        <div class="rayka-floors-layout">
+                            <div class="rayka-input-group rayka-compact">
+                                <label>Floors Count</label>
+                                <input type="number" id="rayka-floor-count" min="1" max="20" value="2" disabled>
+                            </div>
+                            <div class="rayka-scrollable-list rayka-custom-scroll">
+                                <div class="rayka-location-row rayka-main-row">
+                                    <div class="rayka-row-inputs">
+                                        <i class="fa-solid fa-circle rayka-dot-main"></i>
+                                        <input type="text" class="rayka-floor-custom-name" data-inputloc="main"
+                                            value="Main Entrance" placeholder="Enter floor name...">
+                                    </div>
+                                    <button class="rayka-btn-set-loc" data-loc="main" disabled>Set Pos</button>
+                                </div>
+                                <div id="rayka-dynamic-floors-list"></div>
+                            </div>
+                            <button id="rayka-btn-final-build" class="rayka-ox-btn-success" disabled>
+                                <i class="fa-solid fa-circle-check"></i> Create Elevator
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="rayka-list-section" class="rayka-tab-content">
+                <div class="rayka-header-block">
+                    <h2>Registered Elevators</h2>
+                    <p class="rayka-description">Review, edit, and close items as desired.</p>
+                </div>
+                <div class="rayka-search-container">
+                    <i class="fa-solid fa-magnifying-glass rayka-search-icon"></i>
+                    <input type="text" id="rayka-search-input" class="rayka-search-input"
+                        placeholder="Search elevator by name or job requirement..." autocomplete="off">
+                </div>
+                <div class="rayka-elevator-list-wrapper rayka-custom-scroll" id="rayka-elevator-list-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
