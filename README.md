@@ -22,7 +22,8 @@ A simple, lightweight, and highly practical Elevator Creator script for FiveM se
 ## 📺 Video 
 <p align="center">
    
-   <img width="672" height="398" alt="Image" src="https://github.com/user-attachments/assets/cf6eb9b1-b265-4200-98b1-7944500919d9" />
+<img width="680" height="397" alt="Image" src="https://github.com/user-attachments/assets/ba3082a9-1614-4d0f-b4b3-13ce53e03ec2" />
+<img width="672" height="398" alt="Image" src="https://github.com/user-attachments/assets/cf6eb9b1-b265-4200-98b1-7944500919d9" />
 
 ▶️ **[Watch the Tutorial on YouTube](YOUR_YOUTUBE_VIDEO_LINK_HERE)**
 
