@@ -1,6 +1,6 @@
 # 🛗 Rayka Elevator | Easy Elevator Creator
 
-A simple, lightweight, and highly practical Elevator Creator script for FiveM servers. Compatible with **QBCore, ESX, and Qbox**. Designed with performance and ease of use in mind.[cite: 1]
+A simple, lightweight, and highly practical Elevator Creator script for FiveM servers. Compatible with **QBCore, ESX, and Qbox**. Designed with performance and ease of use in mind.
 
 ---
 
